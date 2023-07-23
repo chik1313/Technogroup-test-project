@@ -1,0 +1,11 @@
+.container {
+  background-color: #dcdbdb;
+  padding: 20px;
+
+  .addProjectContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    row-gap: 15px;
+  }
+}
