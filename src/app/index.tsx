@@ -3,7 +3,7 @@ import s from './app.module.scss';
 import { Select } from '../common/components';
 import { Button } from '../common/components';
 import { useEffect, useState } from 'react';
-import { api, ClientType, ProjectType } from './api.tsx';
+import { api, ClientType, ProjectType } from '../api/api.tsx';
 import { currentDate } from '../common/utils';
 
 
@@ -43,7 +43,7 @@ export function App() {
 	}, [client]);
 
 	const onAddProject = async () => {
-		let projectname = `${projectsOptions[projectsOptions.length - 1].id + 1}-${client}-${currentDate()}`;
+		let projectname = `${projectsOptions.length ? projectsOptions[projectsOptions.length - 1].id + 1 : 1}-${client}-${currentDate()}`;
 		const res = await api.addProject(client, projectname.replace(/[\s.,%]/g, ''));
 		setProjectsOptions([res, ...projectsOptions]);
 	};

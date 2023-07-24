@@ -11,7 +11,7 @@ export type ProjectType = {
 }
 
 const instance = axios.create({
-	baseURL: 'http://localhost:8080/api/'
+	baseURL: 'https://backend-project-indol.vercel.app/api/'
 });
 export const api = {
 	getClients() {
