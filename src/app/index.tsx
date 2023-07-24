@@ -5,6 +5,8 @@ import { Button } from '../common/components';
 import { useEffect, useState } from 'react';
 import { api, ClientType, ProjectType } from '../api/api.tsx';
 import { currentDate } from '../common/utils';
+import { v1 } from 'uuid';
+
 
 
 export function App() {
@@ -43,7 +45,7 @@ export function App() {
 	}, [client]);
 
 	const onAddProject = async () => {
-		let projectname = `${projectsOptions.length ? projectsOptions[projectsOptions.length - 1].id + 1 : 1}-${client}-${currentDate()}`;
+		let projectname = `${v1()}-${client}-${currentDate()}`;
 		const res = await api.addProject(client, projectname.replace(/[\s.,%]/g, ''));
 		setProjectsOptions([res, ...projectsOptions]);
 	};
