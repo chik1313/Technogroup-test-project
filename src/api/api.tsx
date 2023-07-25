@@ -23,8 +23,8 @@ export const api = {
 		return instance.get<ProjectType[]>(`project?id=${idclient}`)
 			.then((res) => res.data);
 	},
-	addProject(id: string) {
-		return instance.post<ProjectType>('project', {id})
+	addProject(id: string,currentdate:string) {
+		return instance.post<ProjectType>('project', {id,currentdate})
 			.then((res) => res.data);
 	}
 };

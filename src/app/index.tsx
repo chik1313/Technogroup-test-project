@@ -4,6 +4,7 @@ import { Select } from '../common/components';
 import { Button } from '../common/components';
 import { useEffect, useState } from 'react';
 import { api, ClientType, ProjectType } from '../api/api.tsx';
+import { currentDate } from '../common/utils';
 
 
 
@@ -45,8 +46,9 @@ export function App() {
 	}, [client]);
 
 	const onAddProject = async () => {
-		/*let currentdate = currentDate().replace(/[^+\d]/g, '');*/
-		const res = await api.addProject(client);
+		const currentdate = currentDate().replace(/[^+\d]/g, '')
+		console.log(currentdate);
+		const res = await api.addProject(client,currentdate);
 		setProjectsOptions([res, ...projectsOptions])
 
 	};
