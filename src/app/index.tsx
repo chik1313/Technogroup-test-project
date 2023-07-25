@@ -4,8 +4,8 @@ import { Select } from '../common/components';
 import { Button } from '../common/components';
 import { useEffect, useState } from 'react';
 import { api, ClientType, ProjectType } from '../api/api.tsx';
-import { currentDate } from '../common/utils';
-import { v1 } from 'uuid';
+
+
 
 
 
@@ -45,9 +45,10 @@ export function App() {
 	}, [client]);
 
 	const onAddProject = async () => {
-		let projectname = `${v1()}-${client}-${currentDate()}`;
-		const res = await api.addProject(client, projectname.replace(/[\s.,%]/g, ''));
-		setProjectsOptions([res, ...projectsOptions]);
+		/*let currentdate = currentDate().replace(/[^+\d]/g, '');*/
+		const res = await api.addProject(client);
+		setProjectsOptions([res, ...projectsOptions])
+
 	};
 
 	return (

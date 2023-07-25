@@ -6,8 +6,9 @@ export type ClientType = {
 }
 export type ProjectType = {
 	id: number,
+	id_current_project: number,
 	id_dep_client: string,
-	id_project: string
+	id_project:string
 }
 
 const instance = axios.create({
@@ -22,8 +23,8 @@ export const api = {
 		return instance.get<ProjectType[]>(`project?id=${idclient}`)
 			.then((res) => res.data);
 	},
-	addProject(id: string, idproject: string) {
-		return instance.post<ProjectType>('project', { id, idproject })
+	addProject(id: string) {
+		return instance.post<ProjectType>('project', {id})
 			.then((res) => res.data);
 	}
 };
