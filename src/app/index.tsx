@@ -48,7 +48,6 @@ export function App() {
 	const onAddProject = async () => {
 		const currentdate = currentDate().replace(/[^+\d]/g, '')
 		const res = await api.addProject(client,currentdate);
-		console.log(res);
 		setProjectsOptions([res, ...projectsOptions])
 
 	};
